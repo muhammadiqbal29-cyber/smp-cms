@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | SMP Islam Imam Nawawi</title>
+    <meta
+      name="description"
+      content="Sekolah Menengah Pertama Islam unggulan di Palangkaraya dengan pemahaman Salaful Ummah. Program Tahfizh 5 Juz, Bahasa Arab, dan lingkungan Islami yang kondusif."
+    />
+    <meta
+      name="keywords"
+      content="SMP Islam Palangkaraya, Sekolah Sunnah Palangkaraya, Pondok Pesantren Imam Nawawi, Sekolah Tahfizh Palangkaraya, PPDB SMP Islam, Pendidikan Rabbani"
+    />
+    <meta name="author" content="SMP Islam Imam Nawawi" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- 2. SOCIAL MEDIA / WHATSAPP PREVIEW (Open Graph) -->
+    <!-- Ganti 'https://sekolahmu.netlify.app' dengan link website aslimu nanti -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://smpislamimamnawawi.sch.id/" />
+    <meta
+      property="og:title"
+      content="Penerimaan Siswa Baru - SMP Islam Imam Nawawi Palangkaraya"
+    />
+    <meta
+      property="og:description"
+      content="Mewujudkan generasi Rabbani. Yuk kenalan dengan program unggulan kami: Tahfizh, Bahasa Arab, dan Adab Islami."
+    />
+
+    <!-- PENTING: Ganti link gambar di bawah ini dengan link foto sekolah yang paling bagus -->
+    <!-- Agar saat di-share di WA, gambarnya muncul -->
+    <!-- Jika domain Anda adalah smpimamnawawi.sch.id -->
+    <meta
+      property="og:image"
+      content="https://smpislamimamnawawi.sch.id/assets/img/background_2.png"
+    />
+
+    <!-- 3. SCHEMA MARKUP (Agar Google paham ini adalah SEKOLAH) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MiddleSchool",
+        "name": "SMP Islam Imam Nawawi Palangkaraya",
+        "description": "Sekolah Menengah Pertama Islam dengan pemahaman Salaful Ummah, mencetak generasi Rabbani yang hafal Al-Qur'an dan berakhlak mulia.",
+        "url": "https://smpislamimamnawawi.sch.id/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Gajah Mada, Tjilik Riwut, Km 8, Kec. Jekan Raya, Kel. Bukit Tunggal",
+          "addressLocality": "Palangkaraya",
+          "addressRegion": "Kalimantan Tengah",
+          "addressCountry": "ID"
+        },
+        "telephone": "+6285822121305",
+        "image": "https://images.unsplash.com/photo-1560130958-f7c8b03e226e?q=80&w=1200&auto=format&fit=crop",
+        "priceRange": "$$"
+      }
+    </script>
+    <link rel="icon" href="assets/img/logo.png" type="image/png" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#15803d", // Hijau
+              secondary: "#eab308", // Kuning/Emas
+              dark: "#0f172a",
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+              serif: ["Amiri", "serif"],
+            },
+            height: {
+              "screen-dynamic": "100dvh", // Dynamic viewport height for mobile
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Sembunyikan Scrollbar default tapi tetap bisa scroll */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Animasi Text Fade In */
+      .reveal-text {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 1s ease-out;
+      }
+      .active .reveal-text {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Navigasi Dot Aktif */
+      .nav-dot.active {
+        background-color: #eab308; /* Kuning */
+        transform: scale(1.5);
+      }
+
+      /* FAQ Animation Style */
+      .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      .faq-icon {
+        transition: transform 0.3s ease;
+      }
+      .faq-active .faq-icon {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body class="bg-dark text-white overflow-hidden">
+    <!-- Navbar Floating (Transparan) -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 px-6 py-6 transition-all duration-300"
+      id="navbar"
+    >
+      <div class="flex justify-between items-center max-w-7xl mx-auto">
+        <div class="flex items-center gap-3 md:gap-4">
+          <!-- 2. LOGO NAVBAR -->
+          <img
+            src="assets/img/logo.png"
+            alt="Logo SMP Imam Nawawi"
+            class="w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-md"
+          />
+
+          <div class="flex flex-col drop-shadow-md">
+            <span
+              class="font-extrabold text-base md:text-lg leading-tight tracking-tight text-white"
+              >SMP ISLAM IMAM NAWAWI</span
+            >
+            <span
+              class="text-[8px] md:text-[10px] font-bold text-secondary tracking-widest uppercase"
+              >Palangkaraya</span
+            >
+          </div>
+        </div>
+
+        <!-- Menu Button -->
+        <button
+          onclick="toggleOverlayMenu()"
+          class="text-white hover:text-secondary transition text-2xl focus:outline-none"
+        >
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Overlay Full Menu -->
+    <div
+      id="overlay-menu"
+      class="fixed inset-0 bg-primary/95 backdrop-blur-xl z-[60] transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center"
+    >
+      <button
+        onclick="toggleOverlayMenu()"
+        class="absolute top-8 right-8 text-white text-4xl hover:text-secondary"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="flex flex-col space-y-8 text-center">
+        <a
+          href="#section-1"
+          onclick="toggleOverlayMenu()"
+          class="text-3xl font-bold text-white hover:text-secondary transition font-serif"
+          >Beranda</a
+        >
+        <a
+          href="#section-2"
+          onclick="toggleOverlayMenu()"
+          class="text-3xl font-bold text-white hover:text-secondary transition font-serif"
+          >Tentang Kami</a
+        >
+        <a
+          href="#section-3"
+          onclick="toggleOverlayMenu()"
+          class="text-3xl font-bold text-white hover:text-secondary transition font-serif"
+          >Keunggulan</a
+        >
+        <a
+          href="#section-4"
+          onclick="toggleOverlayMenu()"
+          class="text-3xl font-bold text-white hover:text-secondary transition font-serif"
+          >PPDB & Biaya</a
+        >
+        <a
+          href="#section-5"
+          onclick="toggleOverlayMenu()"
+          class="text-3xl font-bold text-white hover:text-secondary transition font-serif"
+          >FAQ</a
+        >
+        <a
+          href="#section-6"
+          onclick="toggleOverlayMenu()"
+          class="text-3xl font-bold text-white hover:text-secondary transition font-serif"
+          >Kontak</a
+        >
+      </div>
+    </div>
+
+    <!-- Side Navigation Dots -->
+    <div
+      class="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col gap-4"
+    >
+      <a
+        href="#section-1"
+        class="nav-dot w-3 h-3 bg-white/50 rounded-full hover:bg-white transition-all duration-300"
+        data-target="section-1"
+      ></a>
+      <a
+        href="#section-2"
+        class="nav-dot w-3 h-3 bg-white/50 rounded-full hover:bg-white transition-all duration-300"
+        data-target="section-2"
+      ></a>
+      <a
+        href="#section-3"
+        class="nav-dot w-3 h-3 bg-white/50 rounded-full hover:bg-white transition-all duration-300"
+        data-target="section-3"
+      ></a>
+      <a
+        href="#section-4"
+        class="nav-dot w-3 h-3 bg-white/50 rounded-full hover:bg-white transition-all duration-300"
+        data-target="section-4"
+      ></a>
+      <!-- Added Dot for FAQ -->
+      <a
+        href="#section-5"
+        class="nav-dot w-3 h-3 bg-white/50 rounded-full hover:bg-white transition-all duration-300"
+        data-target="section-5"
+      ></a>
+      <!-- Footer is now Section 6 -->
+      <a
+        href="#section-6"
+        class="nav-dot w-3 h-3 bg-white/50 rounded-full hover:bg-white transition-all duration-300"
+        data-target="section-6"
+      ></a>
+    </div>
+
+    <!-- MAIN SCROLL CONTAINER -->
+    <!-- h-screen-dynamic ensures it fits mobile browser bars perfectly -->
+    <main
+      id="main-scroll"
+      class="h-screen-dynamic w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth no-scrollbar"
+    >
+      <!-- SECTION 1: HERO -->
+      <section
+        id="section-1"
+        class="h-screen-dynamic w-full snap-start relative flex items-center justify-center overflow-hidden"
+      >
+        <!-- Background Video/Image -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="assets/img/gambar-latar-sekolah.jpeg"
+            class="w-full h-full object-cover"
+            alt="Hero Background"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"
+          ></div>
+        </div>
+
+        <!-- Content -->
+        <div
+          class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16 reveal-text"
+        >
+          <div
+            class="inline-block px-4 py-1 mb-6 border border-secondary text-secondary rounded-full text-xs font-bold tracking-widest uppercase bg-black/30 backdrop-blur-sm"
+          >
+            Penerimaan Siswa Baru 2026/2027
+          </div>
+          <h1
+            class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-serif leading-tight"
+          >
+            Mencetak Generasi <br />
+            <span class="text-secondary italic">Rabbani</span> & Berwawasan
+          </h1>
+          <p
+            class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light"
+          >
+            Pendidikan menengah pertama dengan pemahaman السلف الصالح (Salaful
+            Ummah). Membangun karakter, menjaga aqidah.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfkf-SZf4G9YzJoUQbIJClmck5DxTf1Vpn5BHKDbDZYUhAOGw/viewform"
+              class="px-8 py-4 bg-primary hover:bg-green-700 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg border border-green-600"
+            >
+              Daftar Sekarang
+            </a>
+            <!-- <a
+              href="https://wa.me/6281234567890"
+              class="px-8 py-4 bg-transparent hover:bg-white/10 text-white border border-white font-bold rounded-full transition-all duration-300"
+            >
+              Jadwal Survei
+            </a> -->
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+          class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50"
+        >
+          <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+      </section>
+
+      <!-- SECTION 2: TENTANG KAMI (Split Layout) -->
+      <section
+        id="section-2"
+        class="h-screen-dynamic w-full snap-start relative flex flex-col lg:flex-row bg-white overflow-hidden"
+      >
+        <!-- Left: Image -->
+        <div class="h-1/2 lg:h-full lg:w-1/2 relative">
+          <img
+            src="assets/img/background_2.png"
+            class="w-full h-full object-cover"
+            alt="Tentang Kami"
+          />
+          <div class="absolute inset-0 bg-primary/20"></div>
+        </div>
+
+        <!-- Right: Text -->
+        <div
+          class="h-1/2 lg:h-full lg:w-1/2 bg-white flex items-center justify-center p-6 lg:p-16"
+        >
+          <div class="max-w-lg reveal-text text-slate-800">
+            <span
+              class="text-primary font-bold tracking-wider text-xs lg:text-sm uppercase block mb-1 lg:mb-2"
+              >Tentang Kami</span
+            >
+            <h2
+              class="text-2xl lg:text-5xl font-bold mb-3 lg:mb-6 font-serif leading-tight"
+            >
+              Mitra Terbaik Ayah Bunda.
+            </h2>
+            <p
+              class="text-slate-600 text-sm lg:text-lg leading-snug lg:leading-relaxed mb-4 lg:mb-6"
+            >
+              Di tengah tantangan zaman, kami hadir sebagai
+              <strong>Murabbi</strong>. Bukan sekadar sekolah, tapi rumah kedua
+              dimana adab dijunjung tinggi sebelum ilmu, dan Al-Qur'an menjadi
+              nafas dalam setiap pembelajaran sains dan teknologi.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <p
+                  class="text-3xl lg:text-4xl font-bold text-secondary mb-0 lg:mb-2"
+                >
+                  B
+                </p>
+                <p class="text-xs lg:text-sm text-slate-500">Akreditasi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: KEUNGGULAN (Compact Cards on Mobile) -->
+      <section
+        id="section-3"
+        class="h-screen-dynamic w-full snap-start relative flex items-center justify-center bg-primary overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 opacity-10"
+          style="
+            background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);
+          "
+        ></div>
+
+        <div
+          class="container mx-auto px-4 md:px-6 relative z-10 h-full flex flex-col justify-center"
+        >
+          <!-- Title Header: Compact on Mobile to Save Space -->
+          <div class="text-center mb-4 md:mb-12 reveal-text shrink-0">
+            <span
+              class="inline-block py-1 px-3 rounded-full bg-white/10 text-secondary border border-secondary/50 text-[10px] md:text-xs font-bold mb-1 md:mb-4 backdrop-blur-sm uppercase tracking-wide"
+            >
+              Program Unggulan
+            </span>
+            <h2
+              class="text-2xl lg:text-5xl font-bold text-white font-serif mb-1 md:mb-2"
+            >
+              Pilar Pendidikan
+            </h2>
+            <!-- Deskripsi disembunyikan di HP agar kartu bisa lebih besar -->
+            <p
+              class="text-green-50/90 max-w-2xl mx-auto text-xs md:text-lg font-light hidden md:block"
+            >
+              Membangun fondasi kokoh untuk kesuksesan dunia dan keselamatan
+              akhirat.
+            </p>
+          </div>
+
+          <!-- Grid Card (3 Columns) -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-8 max-w-6xl mx-auto w-full"
+          >
+            <!-- Card 1 -->
+            <div
+              class="bg-white p-4 md:p-8 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-300 group border-l-4 md:border-b-4 md:border-l-0 border-secondary relative overflow-hidden flex md:block items-center gap-4 md:gap-0"
+            >
+              <!-- Watermark -->
+              <div
+                class="hidden md:block absolute -right-4 -top-4 text-9xl font-bold text-gray-50 opacity-50 z-0"
+              >
+                1
+              </div>
+
+              <div class="relative z-10 shrink-0">
+                <div
+                  class="w-12 h-12 md:w-16 md:h-16 bg-green-50 rounded-xl md:rounded-2xl flex items-center justify-center mb-0 md:mb-6 group-hover:bg-primary transition-colors duration-300"
+                >
+                  <i
+                    class="fa-solid fa-book-quran text-2xl md:text-3xl text-secondary group-hover:text-white transition-colors"
+                  ></i>
+                </div>
+              </div>
+              <div class="relative z-10">
+                <h3
+                  class="text-base md:text-xl font-bold text-slate-900 mb-1 md:mb-3 group-hover:text-primary transition-colors"
+                >
+                  Target 5 Juz + Tajwid
+                </h3>
+                <p
+                  class="text-slate-600 text-xs md:text-sm leading-snug md:leading-relaxed"
+                >
+                  Hafalan mutqin bersanad dengan bacaan sesuai kaidah Tajwid.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="bg-white p-4 md:p-8 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-300 group border-l-4 md:border-b-4 md:border-l-0 border-secondary relative overflow-hidden flex md:block items-center gap-4 md:gap-0"
+            >
+              <div
+                class="hidden md:block absolute -right-4 -top-4 text-9xl font-bold text-gray-50 opacity-50 z-0"
+              >
+                2
+              </div>
+
+              <div class="relative z-10 shrink-0">
+                <div
+                  class="w-12 h-12 md:w-16 md:h-16 bg-green-50 rounded-xl md:rounded-2xl flex items-center justify-center mb-0 md:mb-6 group-hover:bg-primary transition-colors duration-300"
+                >
+                  <i
+                    class="fa-solid fa-scroll text-2xl md:text-3xl text-secondary group-hover:text-white transition-colors"
+                  ></i>
+                </div>
+              </div>
+              <div class="relative z-10">
+                <h3
+                  class="text-base md:text-xl font-bold text-slate-900 mb-1 md:mb-3 group-hover:text-primary transition-colors"
+                >
+                  Hafalan Mutun Ilmiyah
+                </h3>
+                <p
+                  class="text-slate-600 text-xs md:text-sm leading-snug md:leading-relaxed"
+                >
+                  Menghafal matan dasar ilmu syar'i seperti Hadits Arbain.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="bg-white p-4 md:p-8 rounded-xl md:rounded-2xl shadow-xl hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-300 group border-l-4 md:border-b-4 md:border-l-0 border-secondary relative overflow-hidden flex md:block items-center gap-4 md:gap-0"
+            >
+              <div
+                class="hidden md:block absolute -right-4 -top-4 text-9xl font-bold text-gray-50 opacity-50 z-0"
+              >
+                3
+              </div>
+
+              <div class="relative z-10 shrink-0">
+                <div
+                  class="w-12 h-12 md:w-16 md:h-16 bg-green-50 rounded-xl md:rounded-2xl flex items-center justify-center mb-0 md:mb-6 group-hover:bg-primary transition-colors duration-300"
+                >
+                  <i
+                    class="fa-solid fa-mosque text-2xl md:text-3xl text-secondary group-hover:text-white transition-colors"
+                  ></i>
+                </div>
+              </div>
+              <div class="relative z-10">
+                <h3
+                  class="text-base md:text-xl font-bold text-slate-900 mb-1 md:mb-3 group-hover:text-primary transition-colors"
+                >
+                  Lingkungan Islami
+                </h3>
+                <p
+                  class="text-slate-600 text-xs md:text-sm leading-snug md:leading-relaxed"
+                >
+                  Pergaulan yang terjaga, adab yang dikedepankan, dan sunnah
+                  yang diamalkan dalam kehidupan sehari-hari.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: PPDB (Center Focus) -->
+      <!-- Added justify-start and pt-24 on mobile to clear navbar -->
+      <section
+        id="section-4"
+        class="h-screen-dynamic w-full snap-start relative flex flex-col items-center justify-start pt-24 md:justify-center md:pt-0 bg-slate-100 overflow-hidden"
+      >
+        <div class="absolute inset-0 z-0 opacity-10">
+          <img
+            src="assets/img/background_2.png"
+            class="w-full h-full object-cover"
+            alt="Background"
+          />
+        </div>
+
+        <div
+          class="relative z-10 w-full max-w-5xl px-4 lg:px-8 flex flex-col md:flex-row items-center gap-4 md:gap-8 lg:gap-12"
+        >
+          <div class="w-full md:w-1/2 text-center md:text-left reveal-text">
+            <span
+              class="text-primary font-bold tracking-widest uppercase text-xs md:text-sm"
+              >Bergabung Bersama Kami</span
+            >
+            <h2
+              class="text-3xl md:text-4xl lg:text-6xl font-bold text-slate-900 mb-3 md:mb-6 font-serif"
+            >
+              PPDB T.A. <span class="text-primary">2026/2027</span>
+            </h2>
+            <p
+              class="text-slate-600 text-sm md:text-lg mb-4 md:mb-8 leading-snug"
+            >
+              Kuota terbatas. Daftarkan putra-putri Anda sekarang dan dapatkan
+              potongan khusus gelombang pertama.
+            </p>
+            <div class="flex flex-col gap-2 md:gap-3 text-sm md:text-base">
+              <div class="flex items-center gap-3 text-slate-700">
+                <i class="fa-solid fa-check-circle text-primary"></i>
+                <span>Fasilitas Asrama / Full Day</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-700">
+                <i class="fa-solid fa-check-circle text-primary"></i>
+                <span>Ekstrakurikuler Lengkap</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full md:w-1/2 reveal-text">
+            <div
+              class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 border-t-8 border-secondary relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-bl-lg"
+              >
+                Pendaftaran di Awal
+              </div>
+
+              <h3
+                class="text-lg md:text-xl font-bold text-slate-800 mb-4 md:mb-6 text-center"
+              >
+                Investasi Pendidikan
+              </h3>
+
+              <div class="space-y-3 md:space-y-4 mb-6 md:mb-8">
+                <div
+                  class="flex justify-between border-b border-slate-100 pb-2 text-sm md:text-base"
+                >
+                  <span class="text-slate-500">Uang Sarana Prasarana</span>
+                  <span class="font-bold text-primary">Rp 4.250.000</span>
+                </div>
+                <div
+                  class="flex justify-between border-b border-slate-100 pb-2 text-sm md:text-base"
+                >
+                  <span class="text-slate-500">SPP Bulanan</span>
+                  <span class="font-bold text-primary">Rp 1.300.000</span>
+                </div>
+                <p class="text-[10px] md:text-xs text-slate-400 mt-2">
+                  *Termasuk makan 3 kali sehari.
+                </p>
+              </div>
+
+              <a
+                href="assets/docs/detail_biaya.pdf"
+                download="Rincian_Biaya_PPDB_2026.pdf"
+                class="block w-full py-3 md:py-4 bg-primary hover:bg-green-700 text-white font-bold rounded-xl text-center transition shadow-lg shadow-green-200 text-sm md:text-base cursor-pointer"
+              >
+                <i class="fa-solid fa-file-pdf mr-2"></i> Unduh Rincian Biaya
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: FAQ (NEW SECTION) -->
+      <section
+        id="section-5"
+        class="h-screen-dynamic w-full snap-start relative flex flex-col items-center justify-start pt-24 md:justify-center md:pt-0 bg-white overflow-hidden"
+      >
+        <div class="container mx-auto px-6 max-w-3xl relative z-10">
+          <div class="text-center mb-8 reveal-text">
+            <span
+              class="text-primary font-bold tracking-widest uppercase text-xs md:text-sm block mb-2"
+              >Informasi Umum</span
+            >
+            <h2
+              class="text-3xl md:text-5xl font-bold text-slate-900 font-serif"
+            >
+              Pertanyaan (FAQ)
+            </h2>
+          </div>
+
+          <div class="space-y-4 reveal-text w-full">
+            <!-- FAQ Item 1 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden">
+              <button
+                class="w-full text-left px-6 py-4 bg-slate-50 hover:bg-slate-100 flex justify-between items-center transition focus:outline-none group"
+                onclick="toggleFaq(this)"
+              >
+                <span class="font-bold text-slate-700 text-sm md:text-base"
+                  >Apa keunggulan utama SMP Islam Imam Nawawi?</span
+                >
+                <i
+                  class="fa-solid fa-chevron-down text-slate-400 faq-icon group-hover:text-primary"
+                ></i>
+              </button>
+              <div class="faq-content bg-white">
+                <p
+                  class="p-6 text-slate-600 text-sm md:text-base border-t border-slate-100 leading-relaxed"
+                >
+                  SMP Islam Imam Nawawi memadukan kurikulum nasional dengan
+                  pendidikan diniyah. Fokus utama kami adalah pendidikan akidah,
+                  adab, dan ilmu syar’i sesuai pemahaman Salafush Shalih.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 1 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden">
+              <button
+                class="w-full text-left px-6 py-4 bg-slate-50 hover:bg-slate-100 flex justify-between items-center transition focus:outline-none group"
+                onclick="toggleFaq(this)"
+              >
+                <span class="font-bold text-slate-700 text-sm md:text-base"
+                  >Apakah tersedia asrama untuk siswa?</span
+                >
+                <i
+                  class="fa-solid fa-chevron-down text-slate-400 faq-icon group-hover:text-primary"
+                ></i>
+              </button>
+              <div class="faq-content bg-white">
+                <p
+                  class="p-6 text-slate-600 text-sm md:text-base border-t border-slate-100 leading-relaxed"
+                >
+                  Ya, kami menyediakan fasilitas asrama (boarding) bagi siswa
+                  putra dan putri dengan program pembinaan intensif 24 jam,
+                  mencakup tahfidz, bahasa Arab, dan adab.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="border border-slate-200 rounded-xl overflow-hidden">
+              <button
+                class="w-full text-left px-6 py-4 bg-slate-50 hover:bg-slate-100 flex justify-between items-center transition focus:outline-none group"
+                onclick="toggleFaq(this)"
+              >
+                <span class="font-bold text-slate-700 text-sm md:text-base">
+                  Apa saja pelajaran diniyah yang diajarkan?
+                </span>
+                <i
+                  class="fa-solid fa-chevron-down text-slate-400 faq-icon group-hover:text-primary"
+                ></i>
+              </button>
+
+              <div class="faq-content bg-white">
+                <div
+                  class="p-6 text-slate-600 text-sm md:text-base border-t border-slate-100 leading-relaxed"
+                >
+                  <ul class="list-disc pl-5 space-y-2">
+                    <li>
+                      <span class="font-semibold text-slate-800">Tauhid:</span>
+                      Ushul Tsalatsah, Qawaid Arba’
+                    </li>
+                    <li>
+                      <span class="font-semibold text-slate-800">Fiqih:</span>
+                      Fiqih Muyassar
+                    </li>
+                    <li>
+                      <span class="font-semibold text-slate-800">Hadits:</span>
+                      Kitabul Jami dan Arbain Nawawi
+                    </li>
+                    <li>
+                      <span class="font-semibold text-slate-800">Sejarah:</span>
+                      Kitab Syamail Muhammadiyah dan Sirah Nabawiyah (Syaikh
+                      Shafiyyurrahman al-Mubarakfuri)
+                    </li>
+                    <li>
+                      <span class="font-semibold text-slate-800"
+                        >Bahasa Arab:</span
+                      >
+                      Durus Minal Quran, Durusul Lughah, dan Al-Arabiyah Baina
+                      Yadaik
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: FOOTER (Changed ID from section-5 to section-6) -->
+      <!-- Added justify-start and pt-28 on mobile to clear navbar -->
+      <section
+        id="section-6"
+        class="h-screen-dynamic w-full snap-start relative flex flex-col items-center justify-start pt-28 md:justify-center md:pt-0 bg-dark text-white"
+      >
+        <div class="container mx-auto px-6 text-center">
+          <!-- Logo in white box -->
+          <div
+            class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg shadow-green-900/50 p-1"
+          >
+            <img
+              src="assets/img/logo.png"
+              alt="Logo Footer SMP Imam Nawawi"
+              class="w-full h-full object-contain"
+            />
+          </div>
+
+          <!-- Reduced font size on mobile -->
+          <h2 class="text-2xl md:text-3xl font-bold font-serif mb-2">
+            SMP Islam Imam Nawawi
+          </h2>
+          <p class="text-slate-400 mb-6 md:mb-8 text-sm md:text-base">
+            Membangun Peradaban dengan Ilmu dan Adab.
+          </p>
+
+          <div
+            class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto text-left border-t border-slate-800 pt-6 md:pt-10"
+          >
+            <!-- Map Clickable -->
+            <div class="text-center md:text-left group">
+              <h4 class="font-bold text-white mb-2 md:mb-4">Alamat</h4>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=SMP+Islam+Imam+Nawawi+Palangkaraya"
+                target="_blank"
+                class="text-slate-400 text-sm hover:text-secondary transition-colors duration-300 block"
+              >
+                <i class="fa-solid fa-map-location-dot mr-2 text-primary"></i>
+                Jl. Gajah Mada, Tjilik Riwut, Km 8 <br />
+                Kec. Jekan Raya, Kel. Bukit Tunggal Palangkaraya
+                <span class="block text-xs text-primary mt-2"
+                  >(Klik untuk lihat peta)</span
+                >
+              </a>
+            </div>
+            <div class="text-center md:text-left">
+              <h4 class="font-bold text-white mb-2 md:mb-4">Kontak</h4>
+              <p class="text-slate-400 text-sm">+62 858-2212-1305</p>
+            </div>
+            <div class="text-center md:text-left">
+              <h4 class="font-bold text-white mb-2 md:mb-4">Sosial Media</h4>
+              <div class="flex gap-4 justify-center md:justify-start">
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a
+                  href="#"
+                  class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 md:mt-12 text-slate-600 text-xs">
+            &copy; 2024 SMP Islam Imam Nawawi. All rights reserved.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- JavaScript untuk Interaksi -->
+    <script>
+      // Toggle Overlay Menu
+      function toggleOverlayMenu() {
+        const menu = document.getElementById("overlay-menu");
+        if (menu.classList.contains("translate-x-full")) {
+          menu.classList.remove("translate-x-full");
+        } else {
+          menu.classList.add("translate-x-full");
+        }
+      }
+
+      // FAQ Accordion Logic
+      function toggleFaq(button) {
+        const content = button.nextElementSibling;
+        const parent = button.parentElement;
+
+        // Toggle active state
+        parent.classList.toggle("faq-active");
+
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+
+        // Close other FAQs (Optional - for accordion effect)
+        const allFaqs = document.querySelectorAll(".faq-content");
+        allFaqs.forEach((item) => {
+          if (item !== content && item.style.maxHeight) {
+            item.style.maxHeight = null;
+            item.parentElement.classList.remove("faq-active");
+          }
+        });
+      }
+
+      // Intersection Observer untuk animasi scroll
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section");
+        const navDots = document.querySelectorAll(".nav-dot");
+
+        const observerOptions = {
+          root: document.getElementById("main-scroll"),
+          threshold: 0.5, // Memicu ketika 50% section terlihat
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Tambah class active ke section (untuk animasi teks)
+              entry.target.classList.add("active");
+
+              // Update Nav Dots
+              navDots.forEach((dot) => {
+                dot.classList.remove("active");
+                if (dot.getAttribute("data-target") === entry.target.id) {
+                  dot.classList.add("active");
+                }
+              });
+            }
+          });
+        }, observerOptions);
+
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
+  </body>
+</html>
